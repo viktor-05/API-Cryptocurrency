@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Project/CryptoCoins/crypto.css">
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li>Cryptos: <span id="cryptos"></span> </li>
+            <li>Market Cap: <span id="global_market_cap"> </span> </li>
+            <li>24h Vol: <span id="global_volume"></span></li>
+            <li>Dominance: <span id="dominance"></span></li>
+
+        </ul>
+
+    </header>
+    <main class="grid" id="main">
+        <h1>Top 10 Crypto Cryptocurrencies</h1>
+        <div class="search">
+            <input  type="text" placeholder="Search for a coin details" id="searchInput">
+            <!-- <button onclick="openNewCoinDetails()" id="searchBtn">Search</button> -->
+            <div class="newCoinContainer" id="newCoinDetails">
+                <button id="closeBtn" onclick="closenewCoinDetails()">&times;</button>
+                <div id="newCoinDetails_1">
+                    <div class="newCoinDetailsContainer"><label for="">Name: </label><div id="newCoinName"></div> <img src="" alt="coin logo" id="newCoinLogo"></div>
+                    <div class="newCoinDetailsContainer"><label for="">Symbol: </label><div id="newCoinSymbol"></div></div>
+                    <div class="newCoinDetailsContainer"><label for="">Rank: </label><div id="newCoinRank"></div></div>
+                    <div class="newCoinDetailsContainer"><label for="">Price: </label><div id="newCoinPrice"></div><div id="newCoinPriceFluctuation24h"></div></div>
+                    <div class="newCoinDetailsContainer"><label for="">Market Cap: </label><div id="newCoinMarketCap"></div></div>
+                    <div class="newCoinDetailsContainer"><label for="">Volume(24h): </label><div id="newCoinVolume"></div></div>
+                    <div class="newCoinDetailsContainer"><label for="">Circulating Supply: </label><div id="newCoinCirculatingSupply"></div></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="coins">
+                <div class="coins_1">
+                    <h5 class="headerRank">#</h5>
+                    <h5 class="headerName">Name</h5>
+                </div>
+                <div class="coins_2">
+                    <h5>Price</h5>
+                    <h5 class="headerPriceFluctuation">24h%</h5>
+                </div>
+                <div class="coins_3" >
+                    <h5>Market Cap</h5>
+                </div>
+                <div class="coins_4">
+                    <h5>Volume(24h)</h5>
+                </div>
+                <div class="coins_5">
+                    <h5>Circulatting Supply</h5>
+                </div>
+
+            </div>
+
+            <!-- bitcoin cointainer -->
+            <div class="coins">
+                <div class="coins_1">
+                    <h5 class="coinsRank" id="btcRank"></h5>
+                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png" alt="" class="coinLogo">
+                    <h5 class="coinsName" id="btcName"></h5>
+                    <div class="coinsSymbol" id="btcSymbol"></div>
+                </div>
+                <div class="coins_2">
+                    <h5 class="coinsPrice" id="btcPrice"></h5>
+                    <h5 class="coinsPriceFluctuation24h" id="btcPriceFluctuation24h"></h5>
+                </div>
+                <div class="coins_3">
+                    <h5 id="btcMarketCap"></h5>
+                </div>
+                <div class="coins_4">
+                    <h5 id="btcVolume"></h5>
+                </div>
+                <div class="coins_5">
+                    <h5 id="btcCirculatingSupply"></h5>
+                </div>
+            </div>
+
+            <!-- etherium container -->
+            <div class="coins">
+                <div class="coins_1">
+                    <h5 class="coinsRank" id="ethRank"></h5>
+                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png " alt="" class="coinLogo">
+                    <h5 class="coinsName" id="ethName"></h5>
+                    <div class="coinsSymbol" id="ethSymbol"></div>
+                </div>
+                <div class="coins_2">
+                    <h5 class="coinsPrice" id="ethPrice"></h5>
+                    <h5 class="coinsPriceFluctuation24h" id="ethPriceFluctuation24h"></h5>
+                </div>
+                <div class="coins_3">
+                    <h5 id="ethMarketCap"></h5>
+                </div>
+                <div class="coins_4">
+                    <h5 id="ethVolume"></h5>
+                </div>
+                <div class="coins_5">
+                    <h5 id="ethCirculatingSupply"></h5>
+                </div>
+            </div>
+
+            <!-- Tether container -->
+            <div class="coins">
+                <div class="coins_1">
+                    <h5 class="coinsRank" id="usdtRank"></h5>
+                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png" alt="" class="coinLogo">
+                    <h5 class="coinsName" id="usdtName"></h5>
+                    <div class="coinsSymbol" id="usdtSymbol"></div>
+                </div>
+                <div class="coins_2">
+                    <h5 class="coinsPrice" id="usdtPrice"></h5>
+                    <h5 class="coinsPriceFluctuation24h" id="usdtPriceFluctuation24h"></h5>
+                </div>
+                <div class="coins_3">
+                    <h5 id="usdtMarketCap"></h5>
+                </div>
+                <div class="coins_4">
+                    <h5 id="usdtVolume"></h5>
+                </div>
+                <div class="coins_5">
+                    <h5 id="usdtCirculatingSupply"></h5>
+                </div>
+            </div>
+
+            <!-- USD Coin container -->
+            <div class="coins">
+                <div class="coins_1">
+                    <h5 class="coinsRank" id="usdcRank"></h5>
+                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png" alt="" class="coinLogo">
+                    <h5 class="coinsName" id="usdcName"></h5>
+                    <div class="coinsSymbol" id="usdcSymbol"></div>
+                </div>
+                <div class="coins_2">
+                    <h5 class="coinsPrice" id="usdcPrice"></h5>
+                    <h5 class="coinsPriceFluctuation24h" id="usdcPriceFluctuation24h"></h5>
+                </div>
+                <div class="coins_3">
+                    <h5 id="usdcMarketCap"></h5>
+                </div>
+                <div class="coins_4">
+                    <h5 id="usdcVolume"></h5>
+                </div>
+                <div class="coins_5">
+                    <h5 id="usdcCirculatingSupply"></h5>
+                </div>
+            </div>
+
+            <!-- Binance coin container -->
+            <div class="coins">
+                <div class="coins_1">
+                    <h5 class="coinsRank" id="bnbRank"></h5>
+                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png" alt="" class="coinLogo">
+                    <h5 class="coinsName" id="bnbName"></h5>
+                    <div class="coinsSymbol" id="bnbSymbol"></div>
+                </div>
+                <div class="coins_2">
+                    <h5 class="coinsPrice" id="bnbPrice"></h5>
+                    <h5 class="coinsPriceFluctuation24h" id="bnbPriceFluctuation24h"></h5>
+                </div>
+                <div class="coins_3">
+                    <h5 id="bnbMarketCap"></h5>
+                </div>
+                <div class="coins_4">
+                    <h5 id="bnbVolume"></h5>
+                </div>
+                <div class="coins_5">
+                    <h5 id="bnbCirculatingSupply"></h5>
+                </div>
+            </div>
+
+            <!-- XRP container -->
+            <div class="coins">
+                <div class="coins_1">
+                    <h5 class="coinsRank" id="xrpRank"></h5>
+                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/52.png" alt="" class="coinLogo">
+                    <h5 class="coinsName" id="xrpName"></h5>
+                    <div class="coinsSymbol" id="xrpSymbol"></div>
+                </div>
+                <div class="coins_2">
+                    <h5 class="coinsPrice" id="xrpPrice"></h5>
+                    <h5 class="coinsPriceFluctuation24h" id="xrpPriceFluctuation24h"></h5>
+                </div>
+                <div class="coins_3">
+                    <h5 id="xrpMarketCap"></h5>
+                </div>
+                <div class="coins_4">
+                    <h5 id="xrpVolume"></h5>
+                </div>
+                <div class="coins_5">
+                    <h5 id="xrpCirculatingSupply"></h5>
+                </div>
+            </div>
+
+            <!-- busd container -->
+            <div class="coins">
+                <div class="coins_1">
+                    <h5 class="coinsRank" id="busdRank"></h5>
+                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/4687.png" alt="" class="coinLogo">
+                    <h5 class="coinsName" id="busdName"></h5>
+                    <div class="coinsSymbol" id="busdSymbol"></div>
+                </div>
+                <div class="coins_2">
+                    <h5 class="coinsPrice" id="busdPrice"></h5>
+                    <h5 class="coinsPriceFluctuation24h" id="busdPriceFluctuation24h"></h5>
+                </div>
+                <div class="coins_3">
+                    <h5 id="busdMarketCap"></h5>
+                </div>
+                <div class="coins_4">
+                    <h5 id="busdVolume"></h5>
+                </div>
+                <div class="coins_5">
+                    <h5 id="busdCirculatingSupply"></h5>
+                </div>
+            </div>
+
+            <!-- cardano container -->
+            <div class="coins">
+                <div class="coins_1">
+                    <h5 class="coinsRank" id="adaRank"></h5>
+                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/2010.png" alt="" class="coinLogo">
+                    <h5 class="coinsName" id="adaName"></h5>
+                    <div class="coinsSymbol" id="adaSymbol"></div>
+                </div>
+                <div class="coins_2">
+                    <h5 class="coinsPrice" id="adaPrice"></h5>
+                    <h5 class="coinsPriceFluctuation24h" id="adaPriceFluctuation24h"></h5>
+                </div>
+                <div class="coins_3">
+                    <h5 id="adaMarketCap"></h5>
+                </div>
+                <div class="coins_4">
+                    <h5 id="adaVolume"></h5>
+                </div>
+                <div class="coins_5">
+                    <h5 id="adaCirculatingSupply"></h5>
+                </div>
+            </div>
+
+            <!-- solana container -->
+            <div class="coins">
+                <div class="coins_1">
+                    <h5 class="coinsRank" id="solRank"></h5>
+                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png" alt="" class="coinLogo">
+                    <h5 class="coinsName" id="solName"></h5>
+                    <div class="coinsSymbol" id="solSymbol"></div>
+                </div>
+
+                <div class="coins_2">
+                    <h5 class="coinsPrice" id="solPrice"></h5>
+                    <h5 class="coinsPriceFluctuation24h" id="solPriceFluctuation24h"></h5>
+                </div>
+                <div class="coins_3">
+                    <h5 id="solMarketCap"></h5>
+                </div>
+                <div class="coins_4">
+                    <h5 id="solVolume"></h5>
+                </div>
+                <div class="coins_5">
+                    <h5 id="solCirculatingSupply"></h5>
+                </div>
+            </div>
+
+
+
+            <!-- hex Container -->
+            <div class="coins">
+                <div class="coins_1">
+                    <h5 class="coinsRank" id="hexRank"></h5>
+                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/5015.png" alt="" class="coinLogo">
+                    <h5 class="coinsName" id="hexName"></h5>
+                    <div class="coinsSymbol" id="hexSymbol"></div>
+                </div>
+
+                <div class="coins_2">
+                    <h5 class="coinsPrice" id="hexPrice"></h5>
+                    <h5 class="coinsPriceFluctuation24h" id="hexPriceFluctuation24h"></h5>
+                </div>
+                <div class="coins_3">
+                    <h5 id="hexMarketCap"></h5>
+                </div>
+                <div class="coins_4">
+                    <h5 id="hexVolume"></h5>
+                </div>
+                <div class="coins_5">
+                    <h5 id="hexCirculatingSupply"></h5>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <script src="/Project/CryptoCoins/crypto.js"></script>
+</body>
+
+</html>
